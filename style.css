@@ -64,14 +64,72 @@ body {
   border: 2px solid var(--loreal-gold);
   background: var(--loreal-black);
   color: var(--loreal-gold);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 0 12px 0 var(--loreal-gold);
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
-.products-grid .product-card {
-  border: 1px solid var(--loreal-gold);
-  background: var(--loreal-black);
-  color: var(--loreal-white);
-  box-shadow: 0 2px 8px 0 var(--loreal-gold);
-  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+/* Remove old grid card style and keep only the one-per-row card style */
+.products-grid .product-card,
+.product-card {
+  background: var(--loreal-black) !important;
+  border: 2px solid var(--loreal-gold);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 16px;
+  margin: 12px 0;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  color: #fff !important;
+}
+
+.product-card:hover,
+.product-card.selected {
+  border: 3px solid var(--loreal-gold) !important;
+  background: rgba(227, 165, 53, 0.12) !important;
+  box-shadow: 0 0 16px 2px var(--loreal-gold) !important;
+  color: #fff !important;
+}
+
+.product-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 16px 0 0;
+  flex-shrink: 0;
+}
+
+.product-card .product-info {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 4px 0;
+  color: #fff !important;
+  text-align: left;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: #fff !important;
+  margin: 0 0 0 0;
+  text-align: left;
 }
 
 .selected-products h2,
@@ -174,7 +232,7 @@ body {
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;
-  height: 250px;
+  height: 400px;
   overflow-y: auto;
   background: #fafafa;
   margin-bottom: 20px;
@@ -262,12 +320,13 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
-  text-decoration: none;
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--loreal-gold);
 }
 
 /* products grid */
@@ -279,38 +338,62 @@ body {
 }
 
 .product-card {
-  flex: 0 1 calc(33.333% - 14px);
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 4px;
+  background: var(--loreal-black) !important;
+  border: 2px solid var(--loreal-gold);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 16px;
+  margin: 12px 0;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
   display: flex;
-  gap: 15px;
-  min-height: 160px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  color: #fff !important;
+}
+
+.product-card:hover,
+.product-card.selected {
+  border: 3px solid var(--loreal-gold) !important;
+  background: rgba(227, 165, 53, 0.12) !important;
+  box-shadow: 0 0 16px 2px var(--loreal-gold) !important;
+  color: #fff !important;
 }
 
 .product-card img {
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
+  display: block;
+  margin: 0 16px 0 0;
   flex-shrink: 0;
 }
 
 .product-card .product-info {
   flex: 1;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 110px;
+  justify-content: flex-start;
+  min-height: 100px;
 }
 
 .product-card h3 {
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin: 0 0 4px 0;
+  color: #fff !important;
+  text-align: left;
 }
 
 .product-card p {
-  font-size: 14px;
-  color: #666;
+  font-size: 0.95rem;
+  color: #fff !important;
+  margin: 0 0 0 0;
+  text-align: left;
 }
 
 /* selected products */
@@ -352,4 +435,13 @@ body {
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* --- Product Card One-Per-Row Layout --- */
+#productsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  margin-bottom: 24px;
 }
