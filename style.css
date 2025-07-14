@@ -1,3 +1,102 @@
+/* Highlight selected product cards - use a more specific selector to override base styles */
+.products-grid .product-card.selected,
+.product-card.selected {
+  border: 3px solid var(--loreal-gold) !important;
+  background: rgba(227, 165, 53, 0.12) !important;
+  box-shadow: 0 0 16px 2px var(--loreal-gold) !important;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+  z-index: 2;
+}
+/* L'Oréal Color Theme */
+:root {
+  --loreal-gold: #e3a535;
+  --loreal-black: #111;
+  --loreal-white: #fff;
+}
+
+body {
+  background: var(--loreal-black);
+  color: var(--loreal-white);
+}
+
+.site-header {
+  border-bottom: 2px solid var(--loreal-gold);
+  background: var(--loreal-black);
+}
+
+.logo {
+  /* Stronger gold shadow for the L'Oréal logo */
+  filter: drop-shadow(0 4px 16px var(--loreal-gold))
+    drop-shadow(0 0px 32px var(--loreal-gold))
+    drop-shadow(0 0px 48px rgba(227, 165, 53, 0.5));
+  width: 240px;
+  max-width: 100vw;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: width 0.3s;
+}
+
+.site-title {
+  color: var(--loreal-gold);
+  text-shadow: 0 2px 8px var(--loreal-gold);
+}
+
+.products-grid,
+.selected-products,
+.chatbox,
+.site-footer {
+  border: 1px solid var(--loreal-white);
+  background: var(--loreal-black);
+  box-shadow: 0 2px 12px 0 rgba(227, 165, 53, 0.08);
+}
+
+.generate-btn,
+#sendBtn {
+  background: var(--loreal-gold);
+  color: var(--loreal-black);
+  border: 2px solid var(--loreal-gold);
+  box-shadow: 0 2px 8px 0 var(--loreal-gold);
+}
+
+#categoryFilter {
+  border: 2px solid var(--loreal-gold);
+  background: var(--loreal-black);
+  color: var(--loreal-gold);
+}
+
+.products-grid .product-card {
+  border: 1px solid var(--loreal-gold);
+  background: var(--loreal-black);
+  color: var(--loreal-white);
+  box-shadow: 0 2px 8px 0 var(--loreal-gold);
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+}
+
+.selected-products h2,
+.chatbox h2 {
+  color: var(--loreal-gold);
+}
+
+.site-footer {
+  border-top: 2px solid var(--loreal-gold);
+  color: var(--loreal-white);
+  background: var(--loreal-black);
+}
+
+.site-footer a {
+  color: var(--loreal-gold);
+  text-decoration: underline;
+}
+
+/* Add gold highlight to focus/hover states */
+.generate-btn:hover,
+#sendBtn:hover,
+#categoryFilter:focus {
+  box-shadow: 0 0 12px 2px var(--loreal-gold);
+  outline: 2px solid var(--loreal-gold);
+}
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -79,6 +178,7 @@ body {
   overflow-y: auto;
   background: #fafafa;
   margin-bottom: 20px;
+  color: #111;
 }
 
 /* placeholder message */
@@ -86,7 +186,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: #111;
   font-size: 18px;
 }
 
